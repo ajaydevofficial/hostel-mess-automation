@@ -22,6 +22,7 @@
 			<link rel="stylesheet" href="static/css/style-wide.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
+	{% if not request.user.is_authenticated %}
 	<body>
 
 		<!-- Wrapper -->
@@ -101,4 +102,154 @@
 		{% endif %}
 
 	</body>
+
+	{% elif not request.user.is_superuser %}
+	<body>
+
+		<!-- Wrapper -->
+			<div class="wrapper style1">
+
+				<!-- Header -->
+					<div id="header" class="skel-panels-fixed">
+						<div id="logo">
+							<h1><a href="index.html">GEC SKP Ladies Hostel</a></h1>
+						</div>
+						<nav id="nav">
+							<ul>
+								<li class="active"><a href="{% url 'Home_Page' %}">Homepage</a></li>
+								<li><a href="{% url 'Menu_Page' %}">Today's Menu</a></li>
+								<li><a href="{% url 'Bill_Page' %}">Your Bill</a></li>
+								{% if request.user.is_authenticated %}
+								<li><a href="{% url 'Logout_Page' %}">Logout</a></li>
+								{% endif %}
+							</ul>
+						</nav>
+					</div>
+
+				<!-- Banner -->
+					<div id="banner" class="container">
+						<section>
+							<p>This is <strong>Phase Shift</strong>, a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit! Check out more of our stuff at <a href="http://templated.co">our site</a> or follow us on <a href="http://twitter.com/templatedco">Twitter</a>.</p>
+						</section>
+					</div>
+
+				{% if request.user.is_authenticated %}
+				<div id="banner" class="container">
+					<section>
+						<a href="{% url 'Menu_Page' %}" class="button medium">Select Your Menu</a>
+					</section>
+				</div>
+
+				{% else %}
+
+
+
+	<!-- Footer -->
+		<div id="footer" class="wrapper style2">
+			<div class="container">
+				<section>
+					<header class="major">
+						<h2>Login</h2>
+					</header>
+					<form method="post" action="#">{% csrf_token %}
+						<div class="row half">
+							<div class="12u">
+								<input required class="text" type="text" name="username" id="name" placeholder="Name" />
+							</div>
+						</div>
+						<div class="row half">
+							<div class="12u">
+								<input required class="text" type="password" name="password" id="password" placeholder="Password" />
+							</div>
+						</div>
+						{% if invalid %}
+						<div class="row half">
+							<p>Incorrect username or password</p>
+						</div>
+						{% endif %}
+						<div class="row half">
+							<div class="12u">
+								<ul class="actions">
+									<li>
+										<input type="submit" value="Login" class="button alt" />
+									</li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+		{% endif %}
+
+	</body>
+	{% else %}
+	<body>
+
+		<!-- Wrapper -->
+			<div class="wrapper style1">
+
+				<!-- Header -->
+				<div id="header" class="skel-panels-fixed">
+					<div id="logo">
+						<h1><a href="index.html">GEC SKP Ladies Hostel</a></h1>
+					</div>
+					<nav id="nav">
+						<ul>
+							<li class="active"><a href="{% url 'Home_Page' %}">Homepage</a></li>
+							<li><a href="{% url 'Menu_Page' %}">Today's Menu</a></li>
+							{% if request.user.is_authenticated %}
+							<li><a href="{% url 'Logout_Page' %}">Logout</a></li>
+							{% endif %}
+						</ul>
+					</nav>
+				</div>
+				<!-- Header -->
+
+				<!-- Page -->
+					<div id="page" class="container">
+						<div class="row">
+
+							<!-- Content -->
+							<div id="content" class="8u skel-cell-important">
+								<section>
+									<header class="major">
+										<h2>Today's Bill for all inmates</h2>
+										<span class="byline">View bills for today</span>
+									</header>
+									<table style="width:100%; text-align:left;">
+  									<tr>
+    										<th><strong>Name</strong></th>
+    										<th><strong>Bill</strong></th>
+  									</tr>
+  									<tr>
+    										<td>Jill</td>
+    										<td>Smith</td>
+  									</tr>
+										</table>
+								</section>
+							</div>
+
+							<!-- Sidebar -->
+
+				<!-- /Main -->
+
+	</div>
+
+	<!-- Footer -->
+
+	<!-- /Footer -->
+
+	<!-- Copyright -->
+		<div id="copyright">
+				<ul class="icons">
+					<li><a href="#" class="fa fa-facebook"><span>Facebook</span></a></li>
+					<li><a href="#" class="fa fa-twitter"><span>Twitter</span></a></li>
+					<li><a href="#" class="fa fa-google-plus"><span>Google+</span></a></li>
+				</ul>
+			</div>
+		</div>
+
+	</body>
+	{% endif %}
 </html>
