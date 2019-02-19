@@ -35,8 +35,8 @@
 						<nav id="nav">
 							<ul>
 								<li class="active"><a href="index.html">Homepage</a></li>
-								<li><a href="menu.html">Today's Menu</a></li>
-								<li><a href="bill.html">Your Bill</a></li>
+								<li><a href="{% url 'Menu_Page' %}">Today's Menu</a></li>
+								<li><a href="{% url 'Bill_Page' %}">Your Bill</a></li>
 								{% if request.user.is_authenticated %}
 								<li><a href="#">Logout</a></li>
 								{% endif %}
@@ -128,12 +128,6 @@
 			</div>
 		</div>
 		{% endif %}
-		<div id="footer" style="background-color:black;" class="wrapper style2">
-			<div class="container">
-				<section>
-					<br><br><br>
-				</section>
-			</div>
-		</div>
+
 	</body>
 </html>
