@@ -19,7 +19,7 @@ def home_page(request):
 
 def menu_page(request):
     context = {}
-
+    
     return render(request,"menu.html",context)
 
 def bill_page(request):
