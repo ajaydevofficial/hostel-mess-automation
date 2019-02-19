@@ -34,7 +34,7 @@
 						</div>
 						<nav id="nav">
 							<ul>
-								<li class="active"><a href="index.html">Homepage</a></li>
+								<li class="active"><a href="{% url 'Home_Page' %}">Homepage</a></li>
 								<li><a href="{% url 'Menu_Page' %}">Today's Menu</a></li>
 								<li><a href="{% url 'Bill_Page' %}">Your Bill</a></li>
 								{% if request.user.is_authenticated %}
@@ -58,35 +58,18 @@
 							<div class="row no-collapse-1">
 								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic01.jpg" alt=""></a>
 									<div class="box">
-										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
-										<a href="#" class="button">Read More</a> </div>
+										<p>Morning</p>
+										<a href="#" class="button">Select</a> </div>
 								</section>
 								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic02.jpg" alt=""></a>
 									<div class="box">
-										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
-										<a href="#" class="button">Read More</a> </div>
+										<p>Lunch</p>
+										<a href="#" class="button">Select</a> </div>
 								</section>
 								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic03.jpg" alt=""></a>
 									<div class="box">
-										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
-										<a href="#" class="button">Read More</a> </div>
-								</section>
-							</div>
-							<div class="row no-collapse-1">
-								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic01.jpg" alt=""></a>
-									<div class="box">
-										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
-										<a href="#" class="button">Read More</a> </div>
-								</section>
-								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic02.jpg" alt=""></a>
-									<div class="box">
-										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
-										<a href="#" class="button">Read More</a> </div>
-								</section>
-								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic03.jpg" alt=""></a>
-									<div class="box">
-										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
-										<a href="#" class="button">Read More</a> </div>
+										<p>Evening</p>
+										<a href="#" class="button">Select</a> </div>
 								</section>
 							</div>
 						</div>
@@ -103,17 +86,22 @@
 					<header class="major">
 						<h2>Login</h2>
 					</header>
-					<form method="post" action="#">
+					<form method="post" action="#">{% csrf_token %}
 						<div class="row half">
 							<div class="12u">
-								<input class="text" type="text" name="username" id="name" placeholder="Name" />
+								<input required class="text" type="text" name="username" id="name" placeholder="Name" />
 							</div>
 						</div>
 						<div class="row half">
 							<div class="12u">
-								<input class="text" type="password" name="password" id="name" placeholder="Name" />
+								<input required class="text" type="password" name="password" id="password" placeholder="Password" />
 							</div>
 						</div>
+						{% if invalid %}
+						<div class="row half">
+							<p>Incorrect username or password</p>
+						</div>
+						{% endif %}
 						<div class="row half">
 							<div class="12u">
 								<ul class="actions">
