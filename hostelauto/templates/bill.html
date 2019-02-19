@@ -866,7 +866,7 @@
 							<li><a href="{% url 'Menu_Page' %}">Today's Menu</a></li>
 							<li><a href="{% url 'Bill_Page' %}">Your Bill</a></li>
 							{% if request.user.is_authenticated %}
-							<li><a href="#">Logout</a></li>
+							<li><a href="{% url 'Logout_Page' %}">Logout</a></li>
 							{% endif %}
 						</ul>
 					</nav>

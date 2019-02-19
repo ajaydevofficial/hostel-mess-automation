@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import get_user_model,authenticate,login
+from django.contrib.auth import logout
 
 def home_page(request):
     context = {}
@@ -18,8 +19,13 @@ def home_page(request):
 
 def menu_page(request):
     context = {}
+
     return render(request,"menu.html",context)
 
 def bill_page(request):
     context = {}
     return render(request,"bill.html",context)
+
+def logout_page(request):
+    logout(request)
+    return redirect(home_page)
