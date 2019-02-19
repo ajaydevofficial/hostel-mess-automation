@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<!--
+	Phase Shift by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+{% load static %}
+<html>
+	<head>
+		<title>GEC SKP LH</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/jquery.dropotron.min.js"></script>
+		<script src="static/js/skel.min.js"></script>
+		<script src="static/js/skel-layers.min.js"></script>
+		<script src="static/js/init.js"></script>
+			<link rel="stylesheet" href="static/css/skel.css" />
+			<link rel="stylesheet" href="static/css/style.css" />
+			<link rel="stylesheet" href="static/css/style-wide.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div class="wrapper style1">
+
+				<!-- Header -->
+					<div id="header" class="skel-panels-fixed">
+						<div id="logo">
+							<h1><a href="index.html">GEC SKP Ladies Hostel</a></h1>
+						</div>
+						<nav id="nav">
+							<ul>
+								<li class="active"><a href="index.html">Homepage</a></li>
+								<li><a href="menu.html">Today's Menu</a></li>
+								<li><a href="bill.html">Your Bill</a></li>
+								{% if request.user.is_authenticated %}
+								<li><a href="#">Logout</a></li>
+								{% endif %}
+							</ul>
+						</nav>
+					</div>
+
+				<!-- Banner -->
+					<div id="banner" class="container">
+						<section>
+							<p>This is <strong>Phase Shift</strong>, a responsive HTML5 site template freebie by <a href="http://templated.co">TEMPLATED</a>. Released for free under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so use it for whatever (personal or commercial) &ndash; just give us credit! Check out more of our stuff at <a href="http://templated.co">our site</a> or follow us on <a href="http://twitter.com/templatedco">Twitter</a>.</p>
+							<a href="#" class="button medium">Read More</a>
+						</section>
+					</div>
+
+				{% if request.user.is_authenticated %}
+					<div id="extra">
+						<div class="container">
+							<div class="row no-collapse-1">
+								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic01.jpg" alt=""></a>
+									<div class="box">
+										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic02.jpg" alt=""></a>
+									<div class="box">
+										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic03.jpg" alt=""></a>
+									<div class="box">
+										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+							</div>
+							<div class="row no-collapse-1">
+								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic01.jpg" alt=""></a>
+									<div class="box">
+										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic02.jpg" alt=""></a>
+									<div class="box">
+										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+								<section class="4u"> <a href="#" class="image featured"><img src="static/images/pic03.jpg" alt=""></a>
+									<div class="box">
+										<p>Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum  wisi maecenas ligula.</p>
+										<a href="#" class="button">Read More</a> </div>
+								</section>
+							</div>
+						</div>
+					</div>
+
+					{% else %}
+
+
+
+	<!-- Footer -->
+		<div id="footer" class="wrapper style2">
+			<div class="container">
+				<section>
+					<header class="major">
+						<h2>Login</h2>
+					</header>
+					<form method="post" action="#">
+						<div class="row half">
+							<div class="12u">
+								<input class="text" type="text" name="username" id="name" placeholder="Name" />
+							</div>
+						</div>
+						<div class="row half">
+							<div class="12u">
+								<input class="text" type="password" name="password" id="name" placeholder="Name" />
+							</div>
+						</div>
+						<div class="row half">
+							<div class="12u">
+								<ul class="actions">
+									<li>
+										<input type="submit" value="Login" class="button alt" />
+									</li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+		{% endif %}
+		<div id="footer" style="background-color:black;" class="wrapper style2">
+			<div class="container">
+				<section>
+					<br><br><br>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
