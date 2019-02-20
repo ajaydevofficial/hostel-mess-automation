@@ -852,6 +852,7 @@
 							font-size: 12pt;
 							line-height: 1.5em;
 						}
+
 	</style>
 	<body>
 
@@ -866,7 +867,9 @@
 					<nav id="nav">
 						<ul>
 							<li class="active"><a href="{% url 'Home_Page' %}">Homepage</a></li>
+							{% if not already %}
 							<li><a href="{% url 'Menu_Page' %}">Today's Menu</a></li>
+							{% endif %}
 							<li><a href="{% url 'Bill_Page' %}">Your Bill</a></li>
 							{% if request.user.is_authenticated %}
 							<li><a href="{% url 'Logout_Page' %}">Logout</a></li>
@@ -884,15 +887,33 @@
 							<div class="row">
 
 								<!-- Content -->
+
 								<div style="text-align:center;" class="">
 									<section>
 										<ul class="style">
 											<li class="fa fa-wrench">
-												<h3>Integer ultrices</h3>
-												<span>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Maecenas condimentum enim tincidunt risus accumsan.</span> </li>
-											<li class="fa fa-leaf">
-												<h3>Aliquam luctus</h3>
-												<span>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Maecenas condimentum enim tincidunt risus accumsan.</span> </li>
+
+
+												<h3>Select Food Items</h3>
+												<div  class="New" style="text-align:left; color:white;">
+													<form class="" onsubmit="alert("Successfully Submitted")" action="{% url 'Menu_Page' %}" method="post">{% csrf_token %}
+														<h5 style="color:white;">Breakfast</h5>
+														<input type="radio" name="item1" value="idli">Idli<br>
+														<input type="radio" name="item1" value="dosa">Dosa<br>
+														<input type="radio" name="item1" value="poori" checked>Poori<br><br><br>
+														<h5 style="color:white;">Lunch</h5>
+														<input type="radio" name="item2" value="meals">Meals<br>
+														<input type="radio" name="item2" value="biriyani">Biriyani<br>
+														<input type="radio" name="item2" value="friedrice" checked>Fried Rice<br><br><br>
+														<h5 style="color:white;">Dinner</h5>
+														<input type="radio" name="item3" value="chappathy">Chapathy<br>
+														<input type="radio" name="item3" value="meals">Meals<br>
+														<input type="radio" name="item3" value="idiyapam" checked>Idiyappam<br><br><br>
+														<input type="submit" name="" value="Submit">
+													</form>
+												</div>
+
+											</li>
 										</ul>
 									</section>
 								</div>
