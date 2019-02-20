@@ -76,18 +76,28 @@ def menu_page(request):
     'idiyapam' : 30,
     'chappathy' : 35
     }
-    if request.method=='POST':
-        morning = request.POST['item1']
-        lunch = request.POST['item2']
-        evening = request.POST['item3']
-        bill = price[morning]+price[lunch]+price[evening]
-        userdata.objects.create(morning = morning,lunch=lunch,evening=evening,name=request.user.username,bill=bill)
+    try:
+        if request.method=='POST':
+            user = userdata.objects.get(name = request.user.username)
+            return render(request,"menu.html",{"already":True})
+    except:
+        if request.method=='POST':
+            morning = request.POST['item1']
+            lunch = request.POST['item2']
+            evening = request.POST['item3']
+            bill = price[morning]+price[lunch]+price[evening]
+            userdata.objects.create(morning = morning,lunch=lunch,evening=evening,name=request.user.username,bill=bill)
+            return redirect(bill_page)
     return render(request,"menu.html",context)
 
 def bill_page(request):
-
-    user = userdata.objects.get(name=request.user.username)
-    context = {'user':user}
+    try:
+        user = userdata.objects.get(name=request.user.username)
+        context = {'user':user,'submit':True}
+        print('yay')
+    except:
+        context = {'submit':False}
+        print('blah')
     return render(request,"bill.html",context)
 
 def logout_page(request):

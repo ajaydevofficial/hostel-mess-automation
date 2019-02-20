@@ -884,7 +884,11 @@
 										<h2>Today's Bil For You</h2>
 										<span class="byline">View you bill for today</span>
 									</header>
+									{% if submit %}
 									<p><strong>Rs.{{user.bill}}</strong></p>
+									{% else %}
+									<p><strong>Please submit your menu :)</strong></p>
+									{% endif %}
 								</section>
 							</div>
 

@@ -893,10 +893,14 @@
 										<ul class="style">
 											<li class="fa fa-wrench">
 
-
+												{% if already %}
+													<script type="text/javascript">
+														alert('Already Submitted! Come back Tommorow')
+													</script>
+												{% endif %}
 												<h3>Select Food Items</h3>
 												<div  class="New" style="text-align:left; color:white;">
-													<form class="" onsubmit="alert("Successfully Submitted")" action="{% url 'Menu_Page' %}" method="post">{% csrf_token %}
+													<form class="" onsubmit="alert("Successfully Submitted")" method="post">{% csrf_token %}
 														<h5 style="color:white;">Breakfast</h5>
 														<input type="radio" name="item1" value="idli">Idli<br>
 														<input type="radio" name="item1" value="dosa">Dosa<br>
